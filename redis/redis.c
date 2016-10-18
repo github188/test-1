@@ -33,7 +33,8 @@ char *base64_encode(const unsigned char *data,
     char *encoded_data = malloc(*output_length);
     if (encoded_data == NULL) return NULL;
 
-    for (int i = 0, j = 0; i < input_length;) {
+	int i, j;
+    for (i = 0, j = 0; i < input_length;) {
 
         uint32_t octet_a = i < input_length ? (unsigned char)data[i++] : 0;
         uint32_t octet_b = i < input_length ? (unsigned char)data[i++] : 0;
@@ -47,7 +48,7 @@ char *base64_encode(const unsigned char *data,
         encoded_data[j++] = encoding_table[(triple >> 0 * 6) & 0x3F];
     }
 
-    for (int i = 0; i < mod_table[input_length % 3]; i++)
+    for (i = 0; i < mod_table[input_length % 3]; i++)
         encoded_data[*output_length - 1 - i] = '=';
 
     return encoded_data;
@@ -58,7 +59,8 @@ void build_decoding_table() {
 
     decoding_table = malloc(256);
 
-    for (int i = 0; i < 64; i++)
+	int i;
+    for (i = 0; i < 64; i++)
         decoding_table[(unsigned char) encoding_table[i]] = i;
 }
 
@@ -79,7 +81,8 @@ unsigned char *base64_decode(const char *data,
     unsigned char *decoded_data = malloc(*output_length);
     if (decoded_data == NULL) return NULL;
 
-    for (int i = 0, j = 0; i < input_length;) {
+	int i, j;
+    for (i = 0, j = 0; i < input_length;) {
 
         uint32_t sextet_a = data[i] == '=' ? 0 & i++ : decoding_table[data[i++]];
         uint32_t sextet_b = data[i] == '=' ? 0 & i++ : decoding_table[data[i++]];
@@ -151,6 +154,7 @@ int main(int argc, char** argv)
         goto CONNECTED_ERROR;
     }
     printf("Connect to redisServer Success!\n");
+	
 
 #if 0
 	char *result = "eyJTcE51bWJlciI6IjEyMzQ1NiIsIkNoYXJnZU51bWJlciI6IjAwMDAwMDAwMDAwMDAwMDAwMDAwMCIsIlVzZXJDb3VudCI6MSwiVXNlck51bWJlciI6Ijg2MTM4Njk1NjQ1ODUiLCJDb3JwSWQiOiIxMjM0NTYiLCJTZXJ2aWNlVHlwZSI6IjEyMzQ1NiIsIkZlZVR5cGUiOjEsIkZlZVZhbHVlIjoiMCIsIkdpdmVuVmFsdWUiOiIwIiwiQWdlbnRGbGFnIjowLCJNb3JlbGF0ZXRvTVRGbGFnIjoyLCJQcmlvcml0eSI6MCwiRXhwaXJlVGltZSI6IjE2MTAxNTIzNTk1OTAzMiIsIlNjaGVkdWxlVGltZSI6IiIsIlJlcG9ydEZsYWciOjEsIlRwUGlkIjoxLCJVZGhpIjoxLCJNZXNzYWdlQ29kaW5nIjoxNSwiTWVzc2FnZVR5cGUiOjAsIk1zZ0xlbiI6MTYxLCJNc2dDb250ZW50Ijoi5L2g5aW954y05a2QISJ9";
