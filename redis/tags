@@ -4,10 +4,10 @@
 !_TAG_PROGRAM_NAME	Exuberant Ctags	//
 !_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
 !_TAG_PROGRAM_VERSION	5.9~svn20110310	//
-base64_cleanup	redis.c	/^void base64_cleanup() {$/;"	f
-base64_decode	redis.c	/^unsigned char *base64_decode(const char *data,$/;"	f
-base64_encode	redis.c	/^char *base64_encode(const unsigned char *data,$/;"	f
-build_decoding_table	redis.c	/^void build_decoding_table() {$/;"	f
+base64_cleanup	base64.c	/^void base64_cleanup() {$/;"	f
+base64_decode	base64.c	/^unsigned char *base64_decode(const char *data,$/;"	f
+base64_encode	base64.c	/^char *base64_encode(const unsigned char *data,$/;"	f
+build_decoding_table	base64.c	/^void build_decoding_table() {$/;"	f
 cJSON	cJSON.h	/^typedef struct cJSON {$/;"	s
 cJSON	cJSON.h	/^} cJSON;$/;"	t	typeref:struct:cJSON
 cJSON_AddFalseToObject	cJSON.h	121;"	d
@@ -64,8 +64,8 @@ cJSON_strcasecmp	cJSON.c	/^static int cJSON_strcasecmp(const char *s1,const char
 cJSON_strdup	cJSON.c	/^static char* cJSON_strdup(const char* str)$/;"	f	file:
 child	cJSON.h	/^	struct cJSON *child;		\/* An array or object item will have a child pointer pointing to a chain of the items in the array\/object. *\/$/;"	m	struct:cJSON	typeref:struct:cJSON::cJSON
 create_reference	cJSON.c	/^static cJSON *create_reference(cJSON *item) {cJSON *ref=cJSON_New_Item();if (!ref) return 0;memcpy(ref,item,sizeof(cJSON));ref->string=0;ref->type|=cJSON_IsReference;ref->next=ref->prev=0;return ref;}$/;"	f	file:
-decoding_table	redis.c	/^static char *decoding_table = NULL;$/;"	v	file:
-encoding_table	redis.c	/^static char encoding_table[] = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H',$/;"	v	file:
+decoding_table	base64.c	/^static char *decoding_table = NULL;$/;"	v	file:
+encoding_table	base64.c	/^static char encoding_table[] = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H',$/;"	v	file:
 ep	cJSON.c	/^static const char *ep;$/;"	v	file:
 firstByteMark	cJSON.c	/^static const unsigned char firstByteMark[7] = { 0x00, 0x00, 0xC0, 0xE0, 0xF0, 0xF8, 0xFC };$/;"	v	file:
 free_fn	cJSON.h	/^      void (*free_fn)(void *ptr);$/;"	m	struct:cJSON_Hooks
@@ -73,7 +73,7 @@ getTime	redis.c	/^unsigned int getTime()$/;"	f
 main	mode.c	/^int main(int argc, char** argv)$/;"	f
 main	redis.c	/^int main(int argc, char** argv)$/;"	f
 malloc_fn	cJSON.h	/^      void *(*malloc_fn)(size_t sz);$/;"	m	struct:cJSON_Hooks
-mod_table	redis.c	/^static int mod_table[] = {0, 2, 1};$/;"	v	file:
+mod_table	base64.c	/^static int mod_table[] = {0, 2, 1};$/;"	v	file:
 next	cJSON.h	/^	struct cJSON *next,*prev;	\/* next\/prev allow you to walk array\/object chains. Alternatively, use GetArraySize\/GetArrayItem\/GetObjectItem *\/$/;"	m	struct:cJSON	typeref:struct:cJSON::cJSON
 parse_array	cJSON.c	/^static const char *parse_array(cJSON *item,const char *value)$/;"	f	file:
 parse_number	cJSON.c	/^static const char *parse_number(cJSON *item,const char *num)$/;"	f	file:
