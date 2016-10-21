@@ -20,7 +20,7 @@ int main(int argc, char** argv)
 {
 	char json[10000] = {0};
 	snprintf(json, 9999,
-			"{\"SpNumber\":\"10691029\",\"ChargeNumber\":\"10691029\",\"UserCount\":1,\"UserNumber\":\"8615562621875\",\"CorpId\":\"98835\",\"ServiceType\":\"9991801021\",\"FeeType\":2,\"FeeValue\":\"0\",\"GivenValue\":\"0\",\"AgentFlag\":0,\"MorelatetoMTFlag\":2,\"Priority\":9,\"ExpireTime\":\"\",\"ScheduleTime\":\"\",\"ReportFlag\":1,\"TpPid\":0,\"Udhi\":0,\"MessageCoding\":15,\"MessageType\":0,\"MsgLen\":161,\"MessageContent\":\"您的验证码是0254![元征科技]\", \"LinkId\":\"\"}");
+			"{\"SpNumber\":\"98835\",\"ChargeNumber\":\"000000000000000000000\",\"UserCount\":1,\"UserNumber\":\"8615562621875\",\"CorpId\":\"98835\",\"ServiceType\":\"9991801021\",\"FeeType\":2,\"FeeValue\":\"0\",\"GivenValue\":\"0\",\"AgentFlag\":0,\"MorelatetoMTFlag\":2,\"Priority\":9,\"ExpireTime\":\"\",\"ScheduleTime\":\"\",\"ReportFlag\":1,\"TpPid\":0,\"Udhi\":0,\"MessageCoding\":15,\"MessageType\":0,\"MsgLen\":161,\"MessageContent\":\"您的验证码是0254![元征科技]\", \"LinkId\":\"\"}");
 
 	size_t base64_json_len;
 	char* base64_json = base64_encode(json, strlen(json), &base64_json_len);
