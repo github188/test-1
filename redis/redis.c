@@ -19,20 +19,20 @@ unsigned int getTime()
 int main(int argc, char** argv)
 {
 	char json[10000] = {0};
-	snprintf(json, 9999, "{\"SpNumber\":\"123456\",\"ChargeNumber\":\"000000000000000000000\",\"UserCount\":1,\"UserNumber\":\"8613869564585\",\"CorpId\":\"123456\",\"ServiceType\":\"123456\",\"FeeType\":1,\"FeeValue\":\"0\",\"GivenValue\":\"0\",\"AgentFlag\":0,\"MorelatetoMTFlag\":2,\"Priority\":0,\"ExpireTime\":\"161015235959032\",\"ScheduleTime\":\"\",\"ReportFlag\":1,\"TpPid\":1,\"Udhi\":1,\"MessageCoding\":15,\"MessageType\":0,\"MsgLen\":161,\"MsgContent\":\"你好猴子!\", \"LinkId\":\"12345678\"}");
+	snprintf(json, 9999,
+			"{\"SpNumber\":\"10691029\",\"ChargeNumber\":\"10691029\",\"UserCount\":1,\"UserNumber\":\"8615562621875\",\"CorpId\":\"98835\",\"ServiceType\":\"9991801021\",\"FeeType\":2,\"FeeValue\":\"0\",\"GivenValue\":\"0\",\"AgentFlag\":0,\"MorelatetoMTFlag\":2,\"Priority\":9,\"ExpireTime\":\"\",\"ScheduleTime\":\"\",\"ReportFlag\":1,\"TpPid\":0,\"Udhi\":0,\"MessageCoding\":15,\"MessageType\":0,\"MsgLen\":161,\"MessageContent\":\"您的验证码是0254![元征科技]\", \"LinkId\":\"\"}");
 
 	size_t base64_json_len;
 	char* base64_json = base64_encode(json, strlen(json), &base64_json_len);
 
-	base64_json = "eyJTUE51bWJlciI6IiIsIkNoYXJnZU51bWJlciI6IiIsIlVzZXJOdW1iZXIiOiIxMzg2NDEyMDg2NCIsIkNvcnBJZCI6IjQxMzA1MCIsIlNlcnZpY2VUeXBlIjoiIiwiRmVlVHlwZSI6MSwiRmVlVmFsdWUiOiIwIiwiR2l2ZW5WYWx1ZSI6IjAiLCJBZ2VudEZsYWciOjEsIk1vcmVsYXRldG9NVEZsYWciOjIsIlByaW9yaXR5Ijo1LCJFeHBpcmVUaW1lIjoiIiwiU2NoZWR1bGVUaW1lIjoiIiwiUmVwb3J0RmxhZyI6MCwiVFBfcGlkIjoxLCJUUF91ZGhpIjoxLCJNZXNzYWdlQ29kaW5nIjowLCJNZXNzYWdlVHlwZSI6MCwiTWVzc2FnZUNvbnRlbnQiOiJbc3VwZXJdbmloYW8sdGVzdOa1i+ivleefreS/oSIsIlNlbmRUaW1lIjoiMDAwMS0wMS0wMSAwMDowMDowMCIsIkVycm9yQ29kZSI6bnVsbCwiRG9uZVRpbWUiOiIwMDAxLTAxLTAxIDAwOjAwOjAwIiwiRG9uZVJlcG9ydCI6bnVsbCwiZF90ZHpoIjpudWxsLCJkX3VpZCI6bnVsbCwiZF9mbGFnIjowLCJkX3RkYmgiOm51bGwsImRfZmlkIjpudWxsLCJMX1NlbmRUeXBlIjowLCJMX2xldmVsIjowfQ==";
 	char comm[10000] = {0};
 	snprintf(comm, 9999, "LPUSH to_send_list_1130 %s", base64_json);
 
 	printf("\n%s\n\n", comm);
 	
 	// 连接
-    redisContext* c = redisConnect("127.0.0.1", 6379);
-    //redisContext* c = redisConnect("10.140.244.131", 6379);
+    //redisContext* c = redisConnect("127.0.0.1", 6379);
+    redisContext* c = redisConnect("10.140.244.131", 6379);
     if ( c->err ){
         printf("Connect to redisServer faile!\n");
         goto CONNECTED_ERROR;
@@ -57,7 +57,7 @@ int main(int argc, char** argv)
 	//char* base64_temp2 = base64_decode(result, strlen(result), &base64_temp2_len);
 	//printf("base64_temp2 = %s, base64_temp2_len = %lu\n", base64_temp2, base64_temp2_len);
 
-	int insert_num = 10000;
+	int insert_num = 1;
 	if(argc == 2){
 		insert_num = atoi(argv[1]);
 	}
