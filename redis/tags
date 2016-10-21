@@ -4,10 +4,35 @@
 !_TAG_PROGRAM_NAME	Exuberant Ctags	//
 !_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
 !_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+MAX_PKG_SIZE	sgip.h	7;"	d
+MAX_SUBMITMSG_LEN	sgip.h	6;"	d
+Result	sgip.h	/^    unsigned char Result;\/\/Bind执行命令是否成功。0：执行成功 其它：错误码$/;"	m	struct:_SGIPG_BIND_RESP
+SGIPG_BIND	sgip.h	/^}SGIPG_BIND;$/;"	t	typeref:struct:_SGIPG_BIND
+SGIPG_BIND_RESP	sgip.h	/^}SGIPG_BIND_RESP;$/;"	t	typeref:struct:_SGIPG_BIND_RESP
+SGIP_DELIVER	sgip.h	/^}SGIP_DELIVER;$/;"	t	typeref:struct:_SGIP_DELIVER
+SGIP_H	sgip.h	2;"	d
+SGIP_HEAD	sgip.h	/^}SGIP_HEAD;$/;"	t	typeref:struct:_SGIP_HEAD
+SGIP_PKG	sgip.h	/^} SGIP_PKG;$/;"	t	typeref:struct:_SGIP_PKG
+SGIP_REPORT	sgip.h	/^}SGIP_REPORT;$/;"	t	typeref:struct:_SGIP_REPORT
+SGIP_RESP	sgip.h	/^}SGIP_RESP;$/;"	t	typeref:struct:_SGIP_RESP
+SGIP_SEQID	sgip.h	/^}SGIP_SEQID;$/;"	t	typeref:struct:_SGIP_SEQID
+SGIP_SUBMIT	sgip.h	/^}SGIP_SUBMIT;$/;"	t	typeref:struct:_SGIP_SUBMIT
+_SGIPG_BIND	sgip.h	/^typedef struct   _SGIPG_BIND   \/\/Bind命令的语法$/;"	s
+_SGIPG_BIND_RESP	sgip.h	/^typedef struct   _SGIPG_BIND_RESP   \/\/Bind命令的语法$/;"	s
+_SGIP_DELIVER	sgip.h	/^typedef  struct _SGIP_DELIVER$/;"	s
+_SGIP_HEAD	sgip.h	/^typedef struct   _SGIP_HEAD	\/\/消息头的格式$/;"	s
+_SGIP_PKG	sgip.h	/^typedef	struct _SGIP_PKG$/;"	s
+_SGIP_REPORT	sgip.h	/^typedef struct  _SGIP_REPORT$/;"	s
+_SGIP_RESP	sgip.h	/^typedef  struct   _SGIP_RESP   \/\/Bind_Resp应答的语法$/;"	s
+_SGIP_SEQID	sgip.h	/^typedef  struct   _SGIP_SEQID$/;"	s
+_SGIP_SUBMIT	sgip.h	/^typedef struct   _SGIP_SUBMIT$/;"	s
 base64_cleanup	base64.c	/^void base64_cleanup() {$/;"	f
 base64_decode	base64.c	/^unsigned char *base64_decode(const char *data,$/;"	f
 base64_encode	base64.c	/^char *base64_encode(const unsigned char *data,$/;"	f
 build_decoding_table	base64.c	/^void build_decoding_table() {$/;"	f
+cAgentFlag	sgip.h	/^    unsigned char cAgentFlag; \/\/代收费标志,0:应收;1:实收$/;"	m	struct:_SGIP_SUBMIT
+cErrorCode	sgip.h	/^    unsigned char cErrorCode;	\/\/当State=2时为错误码值，否则为0$/;"	m	struct:_SGIP_REPORT
+cFeeType	sgip.h	/^    unsigned char cFeeType; \/\/计费类型$/;"	m	struct:_SGIP_SUBMIT
 cJSON	cJSON.h	/^typedef struct cJSON {$/;"	s
 cJSON	cJSON.h	/^} cJSON;$/;"	t	typeref:struct:cJSON
 cJSON_AddFalseToObject	cJSON.h	121;"	d
@@ -62,18 +87,81 @@ cJSON_free	cJSON.c	/^static void (*cJSON_free)(void *ptr) = free;$/;"	v	file:
 cJSON_malloc	cJSON.c	/^static void *(*cJSON_malloc)(size_t sz) = malloc;$/;"	v	file:
 cJSON_strcasecmp	cJSON.c	/^static int cJSON_strcasecmp(const char *s1,const char *s2)$/;"	f	file:
 cJSON_strdup	cJSON.c	/^static char* cJSON_strdup(const char* str)$/;"	f	file:
+cLoginType	sgip.h	/^    unsigned char cLoginType; \/\/登录类型1-sp连接smg;2-smg连接sp$/;"	m	struct:_SGIPG_BIND
+cMessageCoding	sgip.h	/^    unsigned char cMessageCoding; \/\/编码方式,0:Ascii;3:Write   card;4:binary;8:ucs2;15:GBK$/;"	m	struct:_SGIP_SUBMIT
+cMessageCoding	sgip.h	/^    unsigned char cMessageCoding;\/\/$/;"	m	struct:_SGIP_DELIVER
+cMessageType	sgip.h	/^    unsigned char cMessageType; \/\/0:短消息信息$/;"	m	struct:_SGIP_SUBMIT
+cMorelatetoMTFlag	sgip.h	/^    unsigned char cMorelatetoMTFlag; \/\/引起MT消息的原因$/;"	m	struct:_SGIP_SUBMIT
+cPriority	sgip.h	/^    unsigned char cPriority; \/\/优先级0-9,从低到高$/;"	m	struct:_SGIP_SUBMIT
+cReportFlag	sgip.h	/^    unsigned char cReportFlag; \/\/状态报告标志,0-出错返回状态报告;1-总返回状态报告;2-不要状态报告;3...$/;"	m	struct:_SGIP_SUBMIT
+cReportType	sgip.h	/^    unsigned char cReportType;	\/\/Report命令类型0：对先前一条Submit命令的状态报告1：对先前一条前转Deliver命令的状态报告$/;"	m	struct:_SGIP_REPORT
+cReserve	sgip.h	/^    char cReserve[8];$/;"	m	struct:_SGIP_DELIVER
+cResult	sgip.h	/^    unsigned   char cResult; \/\/0:成功$/;"	m	struct:_SGIP_RESP
+cState	sgip.h	/^    unsigned char cState;		\/\/该命令所涉及的短消息的当前执行状态0：发送成功1：等待发送2：发送失败$/;"	m	struct:_SGIP_REPORT
+cTP_pid	sgip.h	/^    unsigned char cTP_pid;\/\/$/;"	m	struct:_SGIP_DELIVER
+cTP_udhi	sgip.h	/^    unsigned char cTP_udhi;\/\/$/;"	m	struct:_SGIP_DELIVER
+cTpPid	sgip.h	/^    unsigned char cTpPid;$/;"	m	struct:_SGIP_SUBMIT
+cUdhi	sgip.h	/^    unsigned char cUdhi;$/;"	m	struct:_SGIP_SUBMIT
+cUserCount	sgip.h	/^    unsigned char cUserCount; \/\/1 接收短消息的手机数量$/;"	m	struct:_SGIP_SUBMIT
 child	cJSON.h	/^	struct cJSON *child;		\/* An array or object item will have a child pointer pointing to a chain of the items in the array\/object. *\/$/;"	m	struct:cJSON	typeref:struct:cJSON::cJSON
+conn_yzsp	sgip_server.c	/^int conn_yzsp()$/;"	f
 create_reference	cJSON.c	/^static cJSON *create_reference(cJSON *item) {cJSON *ref=cJSON_New_Item();if (!ref) return 0;memcpy(ref,item,sizeof(cJSON));ref->string=0;ref->type|=cJSON_IsReference;ref->next=ref->prev=0;return ref;}$/;"	f	file:
+data	sgip.h	/^    char		data[MAX_PKG_SIZE];	\/\/	数据体$/;"	m	struct:_SGIP_PKG
 decoding_table	base64.c	/^static char *decoding_table = NULL;$/;"	v	file:
 encoding_table	base64.c	/^static char encoding_table[] = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H',$/;"	v	file:
 ep	cJSON.c	/^static const char *ep;$/;"	v	file:
 firstByteMark	cJSON.c	/^static const unsigned char firstByteMark[7] = { 0x00, 0x00, 0xC0, 0xE0, 0xF0, 0xF8, 0xFC };$/;"	v	file:
 free_fn	cJSON.h	/^      void (*free_fn)(void *ptr);$/;"	m	struct:cJSON_Hooks
-getTime	redis.c	/^unsigned int getTime()$/;"	f
+getTime	sgip_web.c	/^unsigned int getTime()$/;"	f
+head	sgip.h	/^    SGIP_HEAD	head;\/\/	包头$/;"	m	struct:_SGIP_PKG
 main	mode.c	/^int main(int argc, char** argv)$/;"	f
-main	redis.c	/^int main(int argc, char** argv)$/;"	f
+main	sgip_server.c	/^int main(int argc, char** argv)$/;"	f
+main	sgip_web.c	/^int main(int argc, char** argv)$/;"	f
 malloc_fn	cJSON.h	/^      void *(*malloc_fn)(size_t sz);$/;"	m	struct:cJSON_Hooks
 mod_table	base64.c	/^static int mod_table[] = {0, 2, 1};$/;"	v	file:
+nCommandId	sgip.h	/^    unsigned   int nCommandId; \/\/ 命令码$/;"	m	struct:_SGIP_HEAD
+nDateTime	sgip.h	/^    unsigned   int nDateTime; \/\/日期时间,如:1120203225$/;"	m	struct:_SGIP_SEQID
+nMessageLength	sgip.h	/^    int nMessageLength;\/\/$/;"	m	struct:_SGIP_DELIVER
+nMessageLength	sgip.h	/^    unsigned   int nMessageLength; \/\/ 数据报的长度$/;"	m	struct:_SGIP_HEAD
+nMsgLen	sgip.h	/^    unsigned int nMsgLen; \/\/短消息长度(不调用sgip_submit_sm_set_messagecontent,而手动赋值的话,需要调用函数htonl()转换为网络字节序)$/;"	m	struct:_SGIP_SUBMIT
+nSGIP_ADDSMG	sgip.h	/^const   unsigned int nSGIP_ADDSMG = 0xd;$/;"	v
+nSGIP_ADDSMG_RESP	sgip.h	/^const   unsigned int nSGIP_ADDSMG_RESP = 0x8000000d;$/;"	v
+nSGIP_ADDSP	sgip.h	/^const   unsigned int nSGIP_ADDSP = 0x6;$/;"	v
+nSGIP_ADDSP_RESP	sgip.h	/^const   unsigned int nSGIP_ADDSP_RESP = 0x80000006;$/;"	v
+nSGIP_ADDTELESEG	sgip.h	/^const   unsigned int nSGIP_ADDTELESEG = 0xa;$/;"	v
+nSGIP_ADDTELESEG_RESP	sgip.h	/^const   unsigned int nSGIP_ADDTELESEG_RESP = 0x8000000a;$/;"	v
+nSGIP_BIND	sgip.h	/^const   unsigned int nSGIP_BIND = 0x1;$/;"	v
+nSGIP_BIND_RESP	sgip.h	/^const   unsigned int nSGIP_BIND_RESP = 0x80000001;$/;"	v
+nSGIP_CHECKUSER	sgip.h	/^const   unsigned int nSGIP_CHECKUSER = 0x10;$/;"	v
+nSGIP_CHECKUSER_RESP	sgip.h	/^const   unsigned int nSGIP_CHECKUSER_RESP = 0x80000010;$/;"	v
+nSGIP_DELETESMG	sgip.h	/^const   unsigned int nSGIP_DELETESMG = 0xf;$/;"	v
+nSGIP_DELETESMG_RESP	sgip.h	/^const   unsigned int nSGIP_DELETESMG_RESP = 0x8000000f;$/;"	v
+nSGIP_DELETESP	sgip.h	/^const   unsigned int nSGIP_DELETESP = 0x8;$/;"	v
+nSGIP_DELETESP_RESP	sgip.h	/^const   unsigned int nSGIP_DELETESP_RESP = 0x80000008;$/;"	v
+nSGIP_DELETETELESEG	sgip.h	/^const   unsigned int nSGIP_DELETETELESEG = 0xc;$/;"	v
+nSGIP_DELETETELESEG_RESP	sgip.h	/^const   unsigned int nSGIP_DELETETELESEG_RESP = 0x8000000c;$/;"	v
+nSGIP_DELIVER	sgip.h	/^const   unsigned int nSGIP_DELIVER = 0x4;$/;"	v
+nSGIP_DELIVER_RESP	sgip.h	/^const   unsigned int nSGIP_DELIVER_RESP = 0x80000004;$/;"	v
+nSGIP_MODIFYSMG	sgip.h	/^const   unsigned int nSGIP_MODIFYSMG = 0xe;$/;"	v
+nSGIP_MODIFYSMG_RESP	sgip.h	/^const   unsigned int nSGIP_MODIFYSMG_RESP = 0x0000000e;$/;"	v
+nSGIP_MODIFYSP	sgip.h	/^const   unsigned int nSGIP_MODIFYSP = 0x7;$/;"	v
+nSGIP_MODIFYSP_RESP	sgip.h	/^const   unsigned int nSGIP_MODIFYSP_RESP = 0x80000007;$/;"	v
+nSGIP_MODIFYTELESEG	sgip.h	/^const   unsigned int nSGIP_MODIFYTELESEG = 0xb;$/;"	v
+nSGIP_MODIFYTELESEG_RESP	sgip.h	/^const   unsigned int nSGIP_MODIFYTELESEG_RESP = 0x8000000b;$/;"	v
+nSGIP_QUERYROUTE	sgip.h	/^const   unsigned int nSGIP_QUERYROUTE = 0x9;$/;"	v
+nSGIP_QUERYROUTE_RESP	sgip.h	/^const   unsigned int nSGIP_QUERYROUTE_RESP = 0x80000009;$/;"	v
+nSGIP_REPORT	sgip.h	/^const   unsigned int nSGIP_REPORT = 0x5;$/;"	v
+nSGIP_REPORT_RESP	sgip.h	/^const   unsigned int nSGIP_REPORT_RESP = 0x80000005;$/;"	v
+nSGIP_SUBMIT	sgip.h	/^const   unsigned int nSGIP_SUBMIT = 0x3;$/;"	v
+nSGIP_SUBMIT_RESP	sgip.h	/^const   unsigned int nSGIP_SUBMIT_RESP = 0x80000003;$/;"	v
+nSGIP_TRACE	sgip.h	/^const   unsigned int nSGIP_TRACE = 0x1000;$/;"	v
+nSGIP_TRACE_RESP	sgip.h	/^const   unsigned int nSGIP_TRACE_RESP = 0x80001000;$/;"	v
+nSGIP_UNBIND	sgip.h	/^const   unsigned int nSGIP_UNBIND = 0x2;$/;"	v
+nSGIP_UNBIND_RESP	sgip.h	/^const   unsigned int nSGIP_UNBIND_RESP = 0x80000002;$/;"	v
+nSGIP_USERRPT	sgip.h	/^const   unsigned int nSGIP_USERRPT = 0x11;$/;"	v
+nSGIP_USERRPT_RESP	sgip.h	/^const   unsigned int nSGIP_USERRPT_RESP = 0x80000011;$/;"	v
+nSeqId	sgip.h	/^    unsigned   int nSeqId; \/\/流水号$/;"	m	struct:_SGIP_SEQID
+nSrcNodeNum	sgip.h	/^    unsigned   int nSrcNodeNum;	\/\/源节点编号$/;"	m	struct:_SGIP_SEQID
 next	cJSON.h	/^	struct cJSON *next,*prev;	\/* next\/prev allow you to walk array\/object chains. Alternatively, use GetArraySize\/GetArrayItem\/GetObjectItem *\/$/;"	m	struct:cJSON	typeref:struct:cJSON::cJSON
 parse_array	cJSON.c	/^static const char *parse_array(cJSON *item,const char *value)$/;"	f	file:
 parse_number	cJSON.c	/^static const char *parse_number(cJSON *item,const char *num)$/;"	f	file:
@@ -87,6 +175,29 @@ print_object	cJSON.c	/^static char *print_object(cJSON *item,int depth,int fmt)$
 print_string	cJSON.c	/^static char *print_string(cJSON *item)	{return print_string_ptr(item->valuestring);}$/;"	f	file:
 print_string_ptr	cJSON.c	/^static char *print_string_ptr(const char *str)$/;"	f	file:
 print_value	cJSON.c	/^static char *print_value(cJSON *item,int depth,int fmt)$/;"	f	file:
+sChargeNumber	sgip.h	/^    char sChargeNumber[21]; \/\/付费号码，手机号码前加“86”国别标志；当且仅当群发且对用户收费时为空；如果为空，则该条短消息产生的费用由UserNumber代表的用户支付；如果为全零字符串“000000000000000000000”，表示该条短消息产生的费用由SP支付。$/;"	m	struct:_SGIP_SUBMIT
+sCorpId	sgip.h	/^    char sCorpId[5]; \/\/企业代码，0-99999$/;"	m	struct:_SGIP_SUBMIT
+sExpireTime	sgip.h	/^    char sExpireTime[16]; \/\/短消息寿命的终止时间,"yymmddhhmmsstnnp","tnnp"取固定值"032+"$/;"	m	struct:_SGIP_SUBMIT
+sFeeValue	sgip.h	/^    char sFeeValue[6]; \/\/该条短消息的收费值,单位为分$/;"	m	struct:_SGIP_SUBMIT
+sGivenValue	sgip.h	/^    char sGivenValue[6]; \/\/赠送用户的话费,0-99999$/;"	m	struct:_SGIP_SUBMIT
+sLinkId	sgip.h	/^    char sLinkId[8];$/;"	m	struct:_SGIP_SUBMIT
+sLoginName	sgip.h	/^    char sLoginName[16];   \/\/服务器端给客户端分配的登录名$/;"	m	struct:_SGIPG_BIND
+sLoginPwd	sgip.h	/^    char sLoginPwd[16];   \/\/服务器端和Login Name对应的密码$/;"	m	struct:_SGIPG_BIND
+sMessageContent	sgip.h	/^    char sMessageContent[600];$/;"	m	struct:_SGIP_DELIVER
+sMsgContent	sgip.h	/^    char sMsgContent[MAX_SUBMITMSG_LEN]; \/\/2048;$/;"	m	struct:_SGIP_SUBMIT
+sReserve	sgip.h	/^    char sReserve[8];   \/\/保留，扩展用$/;"	m	struct:_SGIPG_BIND
+sReserve	sgip.h	/^    char sReserve[8];   \/\/保留，扩展用$/;"	m	struct:_SGIPG_BIND_RESP
+sReserve	sgip.h	/^    char sReserve[8];$/;"	m	struct:_SGIP_REPORT
+sReserved	sgip.h	/^    char sReserved[8];$/;"	m	struct:_SGIP_RESP
+sSPNumber	sgip.h	/^    char sSPNumber[21];\/\/$/;"	m	struct:_SGIP_DELIVER
+sScheduleTime	sgip.h	/^    char sScheduleTime[16]; \/\/定时发送时间$/;"	m	struct:_SGIP_SUBMIT
+sServiceType	sgip.h	/^    char sServiceType[10]; \/\/业务代码，由sp定义$/;"	m	struct:_SGIP_SUBMIT
+sSpNumber	sgip.h	/^    char sSpNumber[21]; \/\/sp的接入号码$/;"	m	struct:_SGIP_SUBMIT
+sUserNumber	sgip.h	/^    char sUserNumber[21];		\/\/接收短消息的手机号，手机号码前加“86”国别标志$/;"	m	struct:_SGIP_REPORT
+sUserNumber	sgip.h	/^    char sUserNumber[21]; \/\/接受该短消息的手机号$/;"	m	struct:_SGIP_SUBMIT
+sUserNumber	sgip.h	/^    char sUserNumber[21];\/\/$/;"	m	struct:_SGIP_DELIVER
+seqid	sgip.h	/^    SGIP_SEQID seqid;			\/\/该命令所涉及的Submit或deliver命令的序列号$/;"	m	struct:_SGIP_REPORT
+seqid	sgip.h	/^    SGIP_SEQID seqid; \/\/ 流水号$/;"	m	struct:_SGIP_HEAD
 skip	cJSON.c	/^static const char *skip(const char *in) {while (in && *in && (unsigned char)*in<=32) in++; return in;}$/;"	f	file:
 string	cJSON.h	/^	char *string;				\/* The item's name string, if this item is the child of, or is in the list of subitems of an object. *\/$/;"	m	struct:cJSON
 suffix_object	cJSON.c	/^static void suffix_object(cJSON *prev,cJSON *item) {prev->next=item;item->prev=prev;}$/;"	f	file:
